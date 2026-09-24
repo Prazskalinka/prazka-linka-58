@@ -5,15 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pražská linka 58</title>
-
-    <meta
-        name="description"
-        content="Web projektu Pražská linka 58. Informace, obrázky a launcher projektu."
-    >
+    <title>O autorovi | Pražská linka 58</title>
 
     <style>
-
         * {
             box-sizing: border-box;
         }
@@ -37,7 +31,7 @@
             align-items: center;
             justify-content: center;
 
-            padding: 20px 300px 20px 40px;
+            padding: 20px 180px;
         }
 
         header h1 {
@@ -45,31 +39,27 @@
             font-size: 48px;
         }
 
-        /* O AUTOROVI */
+        /* TLAČÍTKO ZPĚT */
 
-        .autor-button {
+        .zpet-button {
             position: absolute;
-
-            right: 40px;
+            left: 35px;
             top: 50%;
 
             transform: translateY(-50%);
 
             color: white;
-            background-color: #111111;
+            background-color: transparent;
 
             text-decoration: none;
 
-            font-family: Arial, sans-serif;
-            font-size: 32px;
+            font-size: 24px;
             font-weight: bold;
-
-            padding: 10px;
 
             transition: 0.2s;
         }
 
-        .autor-button:hover {
+        .zpet-button:hover {
             color: #cccccc;
             transform: translateY(-50%) scale(1.04);
         }
@@ -77,63 +67,44 @@
         /* HLAVNÍ OBSAH */
 
         .obsah {
-            padding: 50px 30px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 70px 30px;
         }
 
         h2 {
-            font-size: 32px;
+            font-size: 34px;
+            margin-top: 0;
+            margin-bottom: 35px;
+        }
+
+        .karta {
+            background-color: #262626;
+            border-radius: 15px;
+
+            padding: 40px;
+
+            text-align: left;
+        }
+
+        .karta h3 {
+            text-align: center;
+
+            font-size: 28px;
+
             margin-top: 0;
             margin-bottom: 30px;
         }
 
         p {
             font-size: 20px;
-            line-height: 1.6;
-        }
-
-        /* OBRÁZEK */
-
-        .obrazek {
-            width: 900px;
-            max-width: 90%;
-            height: auto;
-
-            border-radius: 15px;
-
-            margin-top: 25px;
-        }
-
-        /* STAŽENÍ LAUNCHERU */
-
-        .tlacitko {
-            display: inline-block;
-
-            background-color: #0866c6;
-            color: white;
-
-            text-decoration: none;
-
-            font-size: 21px;
-            font-weight: bold;
-
-            padding: 16px 30px;
-
-            border-radius: 10px;
-
-            margin-top: 25px;
-
-            transition: 0.2s;
-        }
-
-        .tlacitko:hover {
-            background-color: #0d7bea;
-            transform: scale(1.04);
+            line-height: 1.8;
         }
 
         /* PATIČKA */
 
         footer {
-            margin-top: 50px;
+            margin-top: 60px;
 
             background-color: #111111;
 
@@ -144,46 +115,46 @@
 
         /* MOBIL */
 
-        @media (max-width: 900px) {
+        @media (max-width: 800px) {
 
             header {
-                padding: 25px 20px 100px 20px;
+                padding: 25px 20px 90px 20px;
             }
 
             header h1 {
                 font-size: 34px;
             }
 
-            .autor-button {
+            .zpet-button {
                 top: auto;
                 bottom: 20px;
 
-                right: 50%;
+                left: 50%;
 
-                transform: translateX(50%);
-
-                font-size: 26px;
+                transform: translateX(-50%);
             }
 
-            .autor-button:hover {
-                transform: translateX(50%) scale(1.04);
+            .zpet-button:hover {
+                transform: translateX(-50%) scale(1.04);
+            }
+
+            .obsah {
+                padding: 40px 20px;
             }
 
             h2 {
-                font-size: 27px;
+                font-size: 28px;
+            }
+
+            .karta {
+                padding: 25px;
             }
 
             p {
                 font-size: 18px;
             }
-
-            .obrazek {
-                max-width: 100%;
-            }
         }
-
     </style>
-
 </head>
 
 
@@ -193,47 +164,43 @@
 
     <header>
 
-        <h1>Pražská linka 58</h1>
-
         <a
-            class="autor-button"
-            href="autor.html"
+            class="zpet-button"
+            href="index.html"
         >
-            O autorovi
+            ← Zpět
         </a>
+
+        <h1>O autorovi</h1>
 
     </header>
 
 
-    <!-- HLAVNÍ ČÁST -->
+    <!-- HLAVNÍ OBSAH -->
 
     <main class="obsah">
 
-        <h2>Vítejte na mém webu</h2>
+        <h2>Pražská linka 58</h2>
 
-        <p>
-            Vítejte na stránce projektu Pražská linka 58.
-        </p>
+        <div class="karta">
 
+            <h3>Autor projektu</h3>
 
-        <img
-            class="obrazek"
-            src="Sor_TNS_18.png"
-            alt="SOR TNS 18 na lince 58"
-        >
+            <p>
+                Autor mapy Pražská linka 58 se jmenuje Tomáš Blaheta.
+            </p>
 
+            <p>
+                Na mapě se začalo pracovat v září 2026.
+                Do budoucna se plánuje dokončení úseku Palmovka–Letňany.
+            </p>
 
-        <p>
-            SOR TNS 18 na lince 58.
-        </p>
+            <p>
+                Do roku 2028 by měly na mapu přibýt také trolejbusy
+                typu SOR TNS 18.
+            </p>
 
-
-        <a
-            class="tlacitko"
-            href="https://github.com/Prazskalinka/prazka-linka-58/releases/latest/download/Prazska58Launcher_Setup.exe"
-        >
-            Stáhnout launcher
-        </a>
+        </div>
 
     </main>
 
