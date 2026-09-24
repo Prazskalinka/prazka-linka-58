@@ -8,79 +8,138 @@
     <title>Pražská linka 58</title>
 
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
             background-color: #1c1c1c;
             color: white;
-            margin: 0;
             text-align: center;
         }
 
         header {
+            position: relative;
+
             background-color: #111111;
-            padding: 25px;
+
+            height: 120px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        h1 {
-            font-size: 48px;
+        header h1 {
             margin: 0;
+            font-size: 48px;
+        }
+
+        /* O AUTOROVI */
+
+        .autor-button {
+            position: absolute;
+
+            right: 40px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: white;
+            background-color: transparent;
+
+            text-decoration: none;
+
+            font-size: 32px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .autor-button:hover {
+            color: #cccccc;
+        }
+
+        /* HLAVNÍ OBSAH */
+
+        .obsah {
+            padding: 70px 30px;
         }
 
         h2 {
             font-size: 32px;
-            margin-top: 40px;
+            margin-top: 0;
+            margin-bottom: 30px;
         }
 
         p {
             font-size: 20px;
-        }
-
-        .obsah {
-            padding: 30px;
+            line-height: 1.6;
         }
 
         .obrazek {
-            width: 800px;
+            width: 900px;
             max-width: 90%;
+            height: auto;
+
             border-radius: 15px;
-            margin-top: 20px;
+
+            margin-top: 25px;
         }
 
         .tlacitko {
             display: inline-block;
+
             background-color: #0866c6;
             color: white;
+
             text-decoration: none;
-            font-size: 22px;
+
+            font-size: 21px;
             font-weight: bold;
-            padding: 16px 32px;
+
+            padding: 16px 30px;
+
             border-radius: 10px;
+
             margin-top: 25px;
-            transition: 0.2s;
         }
 
         .tlacitko:hover {
             background-color: #0d7bea;
-            transform: scale(1.03);
         }
 
         footer {
-            margin-top: 60px;
+            margin-top: 50px;
+
             background-color: #111111;
+
             padding: 25px;
-            font-size: 14px;
+
+            font-size: 15px;
         }
+
     </style>
 </head>
+
 
 <body>
 
     <header>
+
         <h1>Pražská linka 58</h1>
+
+        <a href="autor.html" class="autor-button">
+            O autorovi
+        </a>
+
     </header>
 
 
-    <div class="obsah">
+    <main class="obsah">
 
         <h2>Vítejte na mém webu</h2>
 
@@ -88,27 +147,24 @@
             Vítejte na stránce projektu Pražská linka 58.
         </p>
 
-
         <img
             class="obrazek"
             src="Sor_TNS_18.png"
             alt="SOR TNS 18"
         >
 
-
         <p>
             SOR TNS 18 na lince 58.
         </p>
 
-
         <a
             class="tlacitko"
-            href="https://github.com/Prazskalinka/prazka-linka-58/releases/download/v1.0/Prazska58Launcher_Setup.exe"
+            href="https://github.com/Prazskalinka/prazka-linka-58/releases/latest/download/Prazska58Launcher_Setup.exe"
         >
             Stáhnout launcher
         </a>
 
-    </div>
+    </main>
 
 
     <footer>
