@@ -3,9 +3,28 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pražská linka 58</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Pražská linka 58 | Mapa pro OMSI 2</title>
+
+    <meta
+        name="description"
+        content="Pražská linka 58 je projekt mapy pro OMSI 2. Informace o vývoji mapy, trolejbusech SOR TNS 18 a launcher ke stažení."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://prazskalinka.github.io/prazka-linka-58/"
+    >
 
     <style>
 
@@ -13,76 +32,135 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
+
             font-family: Arial, sans-serif;
+
             background-color: #1c1c1c;
+
             color: white;
+
             text-align: center;
         }
+
+        /* =========================
+           HORNÍ LIŠTA
+        ========================= */
 
         header {
             position: relative;
 
             background-color: #111111;
 
-            height: 120px;
+            min-height: 120px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
+            padding: 20px 300px 20px 40px;
         }
 
         header h1 {
             margin: 0;
+
             font-size: 48px;
         }
 
-        /* O AUTOROVI */
+        /* =========================
+           O AUTOROVI
+        ========================= */
 
         .autor-button {
             position: absolute;
 
             right: 40px;
+
             top: 50%;
 
             transform: translateY(-50%);
 
             color: white;
+
             background-color: transparent;
 
             text-decoration: none;
 
-            font-size: 32px;
+            font-family: Arial, sans-serif;
+
+            font-size: 28px;
+
             font-weight: bold;
 
-            cursor: pointer;
+            transition: 0.2s;
         }
 
         .autor-button:hover {
             color: #cccccc;
         }
 
-        /* HLAVNÍ OBSAH */
+        /* =========================
+           HLAVNÍ OBSAH
+        ========================= */
+
+        main {
+            padding: 60px 30px;
+        }
 
         .obsah {
-            padding: 70px 30px;
+            max-width: 1100px;
+
+            margin: 0 auto;
         }
 
         h2 {
-            font-size: 32px;
-            margin-top: 0;
-            margin-bottom: 30px;
+            font-size: 34px;
+
+            margin-top: 10px;
+
+            margin-bottom: 25px;
+        }
+
+        h3 {
+            font-size: 27px;
+
+            margin-top: 50px;
+
+            margin-bottom: 20px;
         }
 
         p {
             font-size: 20px;
-            line-height: 1.6;
+
+            line-height: 1.7;
         }
+
+        /* =========================
+           ÚVOD
+        ========================= */
+
+        .uvod {
+            max-width: 850px;
+
+            margin: 0 auto 30px auto;
+        }
+
+        /* =========================
+           OBRÁZEK
+        ========================= */
 
         .obrazek {
             width: 900px;
+
             max-width: 90%;
+
             height: auto;
 
             border-radius: 15px;
@@ -90,15 +168,43 @@
             margin-top: 25px;
         }
 
+        .popisek {
+            margin-top: 12px;
+
+            color: #dddddd;
+        }
+
+        /* =========================
+           INFORMACE
+        ========================= */
+
+        .informace {
+            max-width: 850px;
+
+            margin: 45px auto 0 auto;
+
+            background-color: #262626;
+
+            padding: 30px;
+
+            border-radius: 15px;
+        }
+
+        /* =========================
+           STAŽENÍ
+        ========================= */
+
         .tlacitko {
             display: inline-block;
 
             background-color: #0866c6;
+
             color: white;
 
             text-decoration: none;
 
             font-size: 21px;
+
             font-weight: bold;
 
             padding: 16px 30px;
@@ -106,11 +212,19 @@
             border-radius: 10px;
 
             margin-top: 25px;
+
+            transition: 0.2s;
         }
 
         .tlacitko:hover {
             background-color: #0d7bea;
+
+            transform: scale(1.03);
         }
+
+        /* =========================
+           PATIČKA
+        ========================= */
 
         footer {
             margin-top: 50px;
@@ -120,55 +234,181 @@
             padding: 25px;
 
             font-size: 15px;
+
+            color: #cccccc;
+        }
+
+        /* =========================
+           MOBIL
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            header {
+                padding: 25px 20px 95px 20px;
+            }
+
+            header h1 {
+                font-size: 34px;
+            }
+
+            .autor-button {
+                top: auto;
+
+                bottom: 20px;
+
+                right: 50%;
+
+                transform: translateX(50%);
+
+                font-size: 24px;
+            }
+
+            main {
+                padding: 40px 20px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+
+            .obrazek {
+                max-width: 100%;
+            }
+
         }
 
     </style>
+
 </head>
 
 
 <body>
 
+    <!-- =========================
+         HORNÍ LIŠTA
+    ========================== -->
+
     <header>
 
         <h1>Pražská linka 58</h1>
 
-        <a href="autor.html" class="autor-button">
+        <a
+            class="autor-button"
+            href="autor.html"
+        >
             O autorovi
         </a>
 
     </header>
 
 
-    <main class="obsah">
+    <!-- =========================
+         HLAVNÍ OBSAH
+    ========================== -->
 
-        <h2>Vítejte na mém webu</h2>
+    <main>
 
-        <p>
-            Vítejte na stránce projektu Pražská linka 58.
-        </p>
+        <div class="obsah">
 
-        <img
-            class="obrazek"
-            src="Sor_TNS_18.png"
-            alt="SOR TNS 18"
-        >
+            <section class="uvod">
 
-        <p>
-            SOR TNS 18 na lince 58.
-        </p>
+                <h2>Pražská linka 58 pro OMSI 2</h2>
 
-        <a
-            class="tlacitko"
-            href="https://github.com/Prazskalinka/prazka-linka-58/releases/latest/download/Prazska58Launcher_Setup.exe"
-        >
-            Stáhnout launcher
-        </a>
+                <p>
+                    Vítejte na oficiální stránce projektu
+                    <strong>Pražská linka 58</strong>.
+                    Jedná se o projekt mapy pro autobusový
+                    a trolejbusový simulátor OMSI 2.
+                </p>
+
+                <p>
+                    Na této stránce najdete informace o vývoji mapy,
+                    vozidlech a také launcher pro stažení aktualizací projektu.
+                </p>
+
+            </section>
+
+
+            <!-- OBRÁZEK -->
+
+            <img
+                class="obrazek"
+                src="Sor_TNS_18.png"
+                alt="Trolejbus SOR TNS 18 na pražské lince 58"
+            >
+
+            <p class="popisek">
+                SOR TNS 18 na pražské lince 58.
+            </p>
+
+
+            <!-- INFORMACE O MAPĚ -->
+
+            <section class="informace">
+
+                <h3>O projektu Pražská linka 58</h3>
+
+                <p>
+                    Projekt Pražská linka 58 se zaměřuje na vytvoření
+                    pražské trolejbusové linky pro simulátor OMSI 2.
+                </p>
+
+                <p>
+                    Do budoucna se plánuje rozšiřování mapy,
+                    další úseky trasy a přidávání dalších vozidel.
+                </p>
+
+                <p>
+                    Součástí projektu je také vlastní launcher,
+                    pomocí kterého lze stahovat a aktualizovat
+                    obsah potřebný pro mapu.
+                </p>
+
+            </section>
+
+
+            <!-- STAŽENÍ -->
+
+            <section>
+
+                <h3>Stáhnout launcher</h3>
+
+                <p>
+                    Pomocí launcheru můžete stáhnout
+                    a aktualizovat obsah projektu Pražská linka 58.
+                </p>
+
+                <a
+                    class="tlacitko"
+                    href="https://github.com/Prazskalinka/prazka-linka-58/releases/latest/download/Prazska58Launcher_Setup.exe"
+                >
+                    Stáhnout launcher
+                </a>
+
+            </section>
+
+        </div>
 
     </main>
 
 
+    <!-- =========================
+         PATIČKA
+    ========================== -->
+
     <footer>
-        Pražská linka 58
+
+        Pražská linka 58 | Projekt pro OMSI 2
+
     </footer>
 
 </body>
