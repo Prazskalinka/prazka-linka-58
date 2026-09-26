@@ -3,11 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Pražská linka 58 | Mapa pro OMSI 2</title>
 
@@ -32,25 +28,15 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             margin: 0;
-
             font-family: Arial, sans-serif;
-
             background-color: #1c1c1c;
-
             color: white;
-
             text-align: center;
         }
 
-        /* =========================
-           HORNÍ LIŠTA
-        ========================= */
+        /* HORNÍ LIŠTA */
 
         header {
             position: relative;
@@ -60,55 +46,49 @@
             min-height: 120px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
-            padding: 20px 300px 20px 40px;
+            padding: 20px 420px 20px 40px;
         }
 
         header h1 {
             margin: 0;
-
             font-size: 48px;
         }
 
-        /* =========================
-           O AUTOROVI
-        ========================= */
+        /* ODKAZY VPRAVO */
 
-        .autor-button {
+        .header-links {
             position: absolute;
 
-            right: 40px;
-
+            right: 35px;
             top: 50%;
 
             transform: translateY(-50%);
 
-            color: white;
+            display: flex;
+            align-items: center;
 
-            background-color: transparent;
+            gap: 30px;
+        }
+
+        .header-links a {
+            color: white;
 
             text-decoration: none;
 
-            font-family: Arial, sans-serif;
-
-            font-size: 28px;
-
+            font-size: 24px;
             font-weight: bold;
 
             transition: 0.2s;
         }
 
-        .autor-button:hover {
+        .header-links a:hover {
             color: #cccccc;
         }
 
-        /* =========================
-           HLAVNÍ OBSAH
-        ========================= */
+        /* HLAVNÍ OBSAH */
 
         main {
             padding: 60px 30px;
@@ -116,49 +96,37 @@
 
         .obsah {
             max-width: 1100px;
-
             margin: 0 auto;
         }
 
         h2 {
             font-size: 34px;
-
             margin-top: 10px;
-
             margin-bottom: 25px;
         }
 
         h3 {
             font-size: 27px;
-
             margin-top: 50px;
-
             margin-bottom: 20px;
         }
 
         p {
             font-size: 20px;
-
             line-height: 1.7;
         }
 
-        /* =========================
-           ÚVOD
-        ========================= */
+        /* ÚVOD */
 
         .uvod {
             max-width: 850px;
-
             margin: 0 auto 30px auto;
         }
 
-        /* =========================
-           OBRÁZEK
-        ========================= */
+        /* OBRÁZEK */
 
         .obrazek {
             width: 900px;
-
             max-width: 90%;
 
             height: auto;
@@ -170,13 +138,10 @@
 
         .popisek {
             margin-top: 12px;
-
             color: #dddddd;
         }
 
-        /* =========================
-           INFORMACE
-        ========================= */
+        /* INFORMACE */
 
         .informace {
             max-width: 850px;
@@ -190,21 +155,17 @@
             border-radius: 15px;
         }
 
-        /* =========================
-           STAŽENÍ
-        ========================= */
+        /* STAŽENÍ */
 
         .tlacitko {
             display: inline-block;
 
             background-color: #0866c6;
-
             color: white;
 
             text-decoration: none;
 
             font-size: 21px;
-
             font-weight: bold;
 
             padding: 16px 30px;
@@ -218,13 +179,10 @@
 
         .tlacitko:hover {
             background-color: #0d7bea;
-
             transform: scale(1.03);
         }
 
-        /* =========================
-           PATIČKA
-        ========================= */
+        /* PATIČKA */
 
         footer {
             margin-top: 50px;
@@ -238,30 +196,34 @@
             color: #cccccc;
         }
 
-        /* =========================
-           MOBIL
-        ========================= */
+        /* MOBIL */
 
-        @media (max-width: 900px) {
+        @media (max-width: 1000px) {
 
             header {
-                padding: 25px 20px 95px 20px;
+                padding: 25px 20px 110px 20px;
             }
 
             header h1 {
                 font-size: 34px;
             }
 
-            .autor-button {
+            .header-links {
                 top: auto;
 
-                bottom: 20px;
+                bottom: 22px;
 
                 right: 50%;
 
                 transform: translateX(50%);
 
-                font-size: 24px;
+                width: max-content;
+
+                gap: 25px;
+            }
+
+            .header-links a {
+                font-size: 20px;
             }
 
             main {
@@ -283,7 +245,6 @@
             .obrazek {
                 max-width: 100%;
             }
-
         }
 
     </style>
@@ -293,31 +254,35 @@
 
 <body>
 
-    <!-- =========================
-         HORNÍ LIŠTA
-    ========================== -->
+    <!-- HORNÍ LIŠTA -->
 
     <header>
 
         <h1>Pražská linka 58</h1>
 
-        <a
-            class="autor-button"
-            href="autor.html"
-        >
-            O autorovi
-        </a>
+        <div class="header-links">
+
+            <a href="autor.html">
+                O autorovi
+            </a>
+
+            <a href="prihlaseni.html">
+                Přihlásit se
+            </a>
+
+        </div>
 
     </header>
 
 
-    <!-- =========================
-         HLAVNÍ OBSAH
-    ========================== -->
+    <!-- HLAVNÍ OBSAH -->
 
     <main>
 
         <div class="obsah">
+
+
+            <!-- ÚVOD -->
 
             <section class="uvod">
 
@@ -351,15 +316,16 @@
             </p>
 
 
-            <!-- INFORMACE O MAPĚ -->
+            <!-- INFORMACE -->
 
             <section class="informace">
 
                 <h3>O projektu Pražská linka 58</h3>
 
                 <p>
-                    Projekt Pražská linka 58 se zaměřuje na vytvoření
-                    pražské trolejbusové linky pro simulátor OMSI 2.
+                    Projekt Pražská linka 58 se zaměřuje
+                    na vytvoření pražské trolejbusové linky
+                    pro simulátor OMSI 2.
                 </p>
 
                 <p>
@@ -401,14 +367,10 @@
     </main>
 
 
-    <!-- =========================
-         PATIČKA
-    ========================== -->
+    <!-- PATIČKA -->
 
     <footer>
-
         Pražská linka 58 | Projekt pro OMSI 2
-
     </footer>
 
 </body>
