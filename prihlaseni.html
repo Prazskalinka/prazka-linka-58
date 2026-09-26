@@ -20,6 +20,8 @@
             text-align: center;
         }
 
+        /* HORNÍ LIŠTA */
+
         header {
             position: relative;
             background-color: #111111;
@@ -28,6 +30,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
+            padding: 20px;
         }
 
         header h1 {
@@ -39,10 +43,12 @@
             position: absolute;
             left: 35px;
             top: 50%;
+
             transform: translateY(-50%);
 
             color: white;
             text-decoration: none;
+
             font-size: 22px;
             font-weight: bold;
         }
@@ -50,6 +56,8 @@
         .zpet:hover {
             color: #cccccc;
         }
+
+        /* HLAVNÍ OBSAH */
 
         main {
             padding: 60px 20px;
@@ -70,8 +78,16 @@
 
         h2 {
             margin-top: 0;
+            margin-bottom: 25px;
+
             font-size: 30px;
         }
+
+        p {
+            line-height: 1.6;
+        }
+
+        /* INPUTY */
 
         input {
             width: 100%;
@@ -85,6 +101,8 @@
 
             font-size: 17px;
         }
+
+        /* TLAČÍTKA */
 
         button {
             width: 100%;
@@ -100,6 +118,8 @@
             font-weight: bold;
 
             cursor: pointer;
+
+            transition: 0.2s;
         }
 
         .login-button {
@@ -138,16 +158,25 @@
             background-color: #d93025;
         }
 
+        /* ODDĚLOVAČ */
+
         .separator {
             margin: 25px 0;
+
             color: #aaaaaa;
         }
 
+        /* ZPRÁVA */
+
         #message {
             margin-top: 20px;
+
             line-height: 1.5;
+
             min-height: 25px;
         }
+
+        /* UŽIVATEL */
 
         #userPanel {
             display: none;
@@ -156,8 +185,11 @@
         .user-name {
             font-size: 22px;
             font-weight: bold;
+
             margin-bottom: 10px;
         }
+
+        /* PATIČKA */
 
         footer {
             margin-top: 60px;
@@ -168,6 +200,8 @@
 
             color: #cccccc;
         }
+
+        /* MOBIL */
 
         @media (max-width: 700px) {
 
@@ -182,8 +216,18 @@
             .zpet {
                 top: auto;
                 bottom: 20px;
+
                 left: 50%;
+
                 transform: translateX(-50%);
+            }
+
+            main {
+                padding: 40px 15px;
+            }
+
+            .login-box {
+                padding: 25px;
             }
         }
     </style>
@@ -192,9 +236,14 @@
 
 <body>
 
+    <!-- HORNÍ LIŠTA -->
+
     <header>
 
-        <a class="zpet" href="index.html">
+        <a
+            class="zpet"
+            href="index.html"
+        >
             ← Zpět
         </a>
 
@@ -203,15 +252,22 @@
     </header>
 
 
+    <!-- HLAVNÍ OBSAH -->
+
     <main>
 
         <div class="login-box">
 
-            <!-- NEPŘIHLÁŠENÝ UŽIVATEL -->
+            <!-- NEPŘIHLÁŠENÝ -->
 
             <div id="loginPanel">
 
                 <h2>Pražská linka 58</h2>
+
+                <p>
+                    Přihlaste se nebo si vytvořte nový účet.
+                </p>
+
 
                 <input
                     type="email"
@@ -220,6 +276,7 @@
                     autocomplete="email"
                 >
 
+
                 <input
                     type="password"
                     id="password"
@@ -227,12 +284,14 @@
                     autocomplete="current-password"
                 >
 
+
                 <button
                     class="login-button"
                     onclick="loginEmail()"
                 >
                     Přihlásit se
                 </button>
+
 
                 <button
                     class="register-button"
@@ -257,7 +316,7 @@
             </div>
 
 
-            <!-- PŘIHLÁŠENÝ UŽIVATEL -->
+            <!-- PŘIHLÁŠENÝ -->
 
             <div id="userPanel">
 
@@ -270,6 +329,7 @@
                 </div>
 
                 <p id="userEmail"></p>
+
 
                 <button
                     class="logout-button"
@@ -288,80 +348,98 @@
     </main>
 
 
+    <!-- PATIČKA -->
+
     <footer>
         Pražská linka 58
     </footer>
 
 
-    <!-- SUPABASE -->
+    <!-- SUPABASE KNIHOVNA -->
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+
     <script>
 
-        /* =====================================
-           SUPABASE NASTAVENÍ
-        ====================================== */
+        /* =========================================
+           NASTAVENÍ SUPABASE
+        ========================================== */
 
         const SUPABASE_URL =
             "https://zhrlmmxueozrpvemuccy.supabase.co";
 
 
         /*
-            SEM VLOŽ CELÝ SVŮJ PUBLISHABLE KEY.
+            SEM VLOŽ SVŮJ PUBLISHABLE KEY ZE SUPABASE.
 
-            Musí začínat přibližně:
+            Začíná:
 
             sb_publishable_...
 
-            NEVKLÁDEJ SEM SECRET KEY.
+            POZOR:
+            NIKDY SEM NEDÁVEJ SECRET KEY.
         */
 
         const SUPABASE_PUBLISHABLE_KEY =
-            "SEM_VLOZ_SVUJ_PUBLISHABLE_KEY";
+            "SEM_VLOZ_CELY_PUBLISHABLE_KEY";
 
 
-        const supabaseClient = window.supabase.createClient(
-            SUPABASE_URL,
-            SUPABASE_PUBLISHABLE_KEY
-        );
+        const supabaseClient =
+            window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_PUBLISHABLE_KEY
+            );
 
 
-        /* =====================================
-           ZPRÁVY
-        ====================================== */
+        /* =========================================
+           ZOBRAZENÍ ZPRÁVY
+        ========================================== */
 
         function showMessage(text, error = false) {
 
-            const message = document.getElementById("message");
+            const message =
+                document.getElementById("message");
+
 
             message.textContent = text;
 
+
             if (error) {
+
                 message.style.color = "#ff7676";
+
             } else {
+
                 message.style.color = "#8ee89c";
+
             }
         }
 
 
-        /* =====================================
+        /* =========================================
            REGISTRACE E-MAILEM
-        ====================================== */
+        ========================================== */
 
         async function registerEmail() {
 
             const email =
-                document.getElementById("email").value.trim();
+                document
+                    .getElementById("email")
+                    .value
+                    .trim();
+
 
             const password =
-                document.getElementById("password").value;
+                document
+                    .getElementById("password")
+                    .value;
 
 
             if (!email || !password) {
 
                 showMessage(
-                    "Vyplň e-mail a heslo.",
+                    "Vyplňte e-mail a heslo.",
                     true
                 );
 
@@ -380,7 +458,9 @@
             }
 
 
-            showMessage("Probíhá registrace...");
+            showMessage(
+                "Probíhá registrace..."
+            );
 
 
             const { data, error } =
@@ -394,6 +474,7 @@
 
                         emailRedirectTo:
                             "https://prazskalinka.github.io/prazka-linka-58/prihlaseni.html"
+
                     }
 
                 });
@@ -417,32 +498,41 @@
                     "Registrace proběhla úspěšně."
                 );
 
+                updateUser(data.session);
+
             } else {
 
                 showMessage(
-                    "Registrace proběhla. Zkontroluj svůj e-mail a potvrď registraci."
+                    "Registrace proběhla. Zkontrolujte svůj e-mail a potvrďte registraci."
                 );
+
             }
         }
 
 
-        /* =====================================
+        /* =========================================
            PŘIHLÁŠENÍ E-MAILEM
-        ====================================== */
+        ========================================== */
 
         async function loginEmail() {
 
             const email =
-                document.getElementById("email").value.trim();
+                document
+                    .getElementById("email")
+                    .value
+                    .trim();
+
 
             const password =
-                document.getElementById("password").value;
+                document
+                    .getElementById("password")
+                    .value;
 
 
             if (!email || !password) {
 
                 showMessage(
-                    "Vyplň e-mail a heslo.",
+                    "Vyplňte e-mail a heslo.",
                     true
                 );
 
@@ -450,17 +540,20 @@
             }
 
 
-            showMessage("Přihlašuji...");
+            showMessage(
+                "Probíhá přihlášení..."
+            );
 
 
             const { data, error } =
-                await supabaseClient.auth.signInWithPassword({
+                await supabaseClient.auth
+                    .signInWithPassword({
 
-                    email: email,
+                        email: email,
 
-                    password: password
+                        password: password
 
-                });
+                    });
 
 
             if (error) {
@@ -475,15 +568,20 @@
             }
 
 
-            showMessage("Přihlášení proběhlo úspěšně.");
+            showMessage(
+                "Přihlášení proběhlo úspěšně."
+            );
 
-            updateUser(data.session);
+
+            updateUser(
+                data.session
+            );
         }
 
 
-        /* =====================================
-           DISCORD
-        ====================================== */
+        /* =========================================
+           PŘIHLÁŠENÍ PŘES DISCORD
+        ========================================== */
 
         async function loginDiscord() {
 
@@ -493,17 +591,19 @@
 
 
             const { error } =
-                await supabaseClient.auth.signInWithOAuth({
+                await supabaseClient.auth
+                    .signInWithOAuth({
 
-                    provider: "discord",
+                        provider: "discord",
 
-                    options: {
+                        options: {
 
-                        redirectTo:
-                            "https://prazskalinka.github.io/prazka-linka-58/prihlaseni.html"
-                    }
+                            redirectTo:
+                                "https://prazskalinka.github.io/prazka-linka-58/prihlaseni.html"
 
-                });
+                        }
+
+                    });
 
 
             if (error) {
@@ -513,18 +613,20 @@
                     error.message,
                     true
                 );
+
             }
         }
 
 
-        /* =====================================
+        /* =========================================
            ODHLÁŠENÍ
-        ====================================== */
+        ========================================== */
 
         async function logout() {
 
             const { error } =
-                await supabaseClient.auth.signOut();
+                await supabaseClient.auth
+                    .signOut();
 
 
             if (error) {
@@ -538,41 +640,55 @@
             }
 
 
-            showMessage("Byl jste odhlášen.");
+            showMessage(
+                "Byl jste odhlášen."
+            );
+
 
             updateUser(null);
         }
 
 
-        /* =====================================
-           ZOBRAZENÍ UŽIVATELE
-        ====================================== */
+        /* =========================================
+           ZOBRAZENÍ PŘIHLÁŠENÉHO UŽIVATELE
+        ========================================== */
 
         function updateUser(session) {
 
             const loginPanel =
-                document.getElementById("loginPanel");
+                document.getElementById(
+                    "loginPanel"
+                );
+
 
             const userPanel =
-                document.getElementById("userPanel");
+                document.getElementById(
+                    "userPanel"
+                );
 
 
             if (!session || !session.user) {
 
-                loginPanel.style.display = "block";
+                loginPanel.style.display =
+                    "block";
 
-                userPanel.style.display = "none";
+                userPanel.style.display =
+                    "none";
 
                 return;
             }
 
 
-            const user = session.user;
+            const user =
+                session.user;
 
 
-            loginPanel.style.display = "none";
+            loginPanel.style.display =
+                "none";
 
-            userPanel.style.display = "block";
+
+            userPanel.style.display =
+                "block";
 
 
             const metadata =
@@ -580,16 +696,24 @@
 
 
             const displayName =
+
                 metadata.full_name ||
+
                 metadata.name ||
+
                 metadata.preferred_username ||
+
                 metadata.user_name ||
+
+                metadata.username ||
+
                 "Přihlášený uživatel";
 
 
             document.getElementById(
                 "userName"
-            ).textContent = displayName;
+            ).textContent =
+                displayName;
 
 
             document.getElementById(
@@ -601,33 +725,53 @@
         }
 
 
-        /* =====================================
-           KONTROLA PŘI NAČTENÍ
-        ====================================== */
+        /* =========================================
+           KONTROLA PŘI OTEVŘENÍ STRÁNKY
+        ========================================== */
 
         async function checkSession() {
 
-            const { data } =
-                await supabaseClient.auth.getSession();
+            const { data, error } =
+                await supabaseClient.auth
+                    .getSession();
 
-            updateUser(data.session);
+
+            if (error) {
+
+                showMessage(
+                    "Nepodařilo se zkontrolovat přihlášení.",
+                    true
+                );
+
+                return;
+            }
+
+
+            updateUser(
+                data.session
+            );
         }
 
 
         checkSession();
 
 
-        /* =====================================
-           ZMĚNA PŘIHLÁŠENÍ
-        ====================================== */
+        /* =========================================
+           SLEDOVÁNÍ ZMĚN PŘIHLÁŠENÍ
+        ========================================== */
 
-        supabaseClient.auth.onAuthStateChange(
-            (event, session) => {
+        supabaseClient.auth
+            .onAuthStateChange(
 
-                updateUser(session);
+                (event, session) => {
 
-            }
-        );
+                    updateUser(
+                        session
+                    );
+
+                }
+
+            );
 
     </script>
 
