@@ -12,16 +12,6 @@
         content="Pražská linka 58 je projekt mapy pro OMSI 2. Informace o vývoji mapy, trolejbusech SOR TNS 18 a launcher ke stažení."
     >
 
-    <meta
-        name="robots"
-        content="index, follow"
-    >
-
-    <link
-        rel="canonical"
-        href="https://prazskalinka.github.io/prazka-linka-58/"
-    >
-
     <style>
 
         * {
@@ -40,16 +30,14 @@
 
         header {
             position: relative;
-
             background-color: #111111;
-
             min-height: 120px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            padding: 20px 420px 20px 40px;
+            padding: 20px 400px 20px 40px;
         }
 
         header h1 {
@@ -57,9 +45,9 @@
             font-size: 48px;
         }
 
-        /* ODKAZY VPRAVO */
+        /* PRAVÉ MENU */
 
-        .header-links {
+        .header-menu {
             position: absolute;
 
             right: 35px;
@@ -70,22 +58,96 @@
             display: flex;
             align-items: center;
 
-            gap: 30px;
+            gap: 25px;
         }
 
-        .header-links a {
+        .header-menu > a {
             color: white;
 
             text-decoration: none;
 
-            font-size: 24px;
+            font-size: 23px;
             font-weight: bold;
-
-            transition: 0.2s;
         }
 
-        .header-links a:hover {
+        .header-menu > a:hover {
             color: #cccccc;
+        }
+
+        /* PROFIL */
+
+        #profileContainer {
+            position: relative;
+            display: none;
+        }
+
+        #profileAvatar {
+            width: 52px;
+            height: 52px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            border: 2px solid white;
+
+            cursor: pointer;
+
+            display: block;
+        }
+
+        #profileAvatar:hover {
+            opacity: 0.85;
+        }
+
+        /* MENU POD PROFILOVKOU */
+
+        #profileMenu {
+            display: none;
+
+            position: absolute;
+
+            top: 62px;
+            right: 0;
+
+            width: 180px;
+
+            background-color: #2a2a2a;
+
+            border-radius: 10px;
+
+            padding: 10px;
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+
+            z-index: 9999;
+        }
+
+        #profileMenu.show {
+            display: block;
+        }
+
+        #profileMenu button {
+            width: 100%;
+
+            padding: 12px;
+
+            border: none;
+
+            border-radius: 7px;
+
+            background-color: transparent;
+
+            color: white;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        #profileMenu button:hover {
+            background-color: #444444;
         }
 
         /* HLAVNÍ OBSAH */
@@ -101,22 +163,18 @@
 
         h2 {
             font-size: 34px;
-            margin-top: 10px;
             margin-bottom: 25px;
         }
 
         h3 {
             font-size: 27px;
             margin-top: 50px;
-            margin-bottom: 20px;
         }
 
         p {
             font-size: 20px;
             line-height: 1.7;
         }
-
-        /* ÚVOD */
 
         .uvod {
             max-width: 850px;
@@ -137,7 +195,6 @@
         }
 
         .popisek {
-            margin-top: 12px;
             color: #dddddd;
         }
 
@@ -148,9 +205,9 @@
 
             margin: 45px auto 0 auto;
 
-            background-color: #262626;
-
             padding: 30px;
+
+            background-color: #262626;
 
             border-radius: 15px;
         }
@@ -161,6 +218,7 @@
             display: inline-block;
 
             background-color: #0866c6;
+
             color: white;
 
             text-decoration: none;
@@ -173,13 +231,10 @@
             border-radius: 10px;
 
             margin-top: 25px;
-
-            transition: 0.2s;
         }
 
         .tlacitko:hover {
             background-color: #0d7bea;
-            transform: scale(1.03);
         }
 
         /* PATIČKA */
@@ -191,8 +246,6 @@
 
             padding: 25px;
 
-            font-size: 15px;
-
             color: #cccccc;
         }
 
@@ -201,29 +254,31 @@
         @media (max-width: 1000px) {
 
             header {
-                padding: 25px 20px 110px 20px;
+                padding: 25px 20px 125px 20px;
             }
 
             header h1 {
                 font-size: 34px;
             }
 
-            .header-links {
+            .header-menu {
                 top: auto;
-
-                bottom: 22px;
+                bottom: 25px;
 
                 right: 50%;
 
                 transform: translateX(50%);
 
                 width: max-content;
-
-                gap: 25px;
             }
 
-            .header-links a {
-                font-size: 20px;
+            .header-menu > a {
+                font-size: 19px;
+            }
+
+            #profileAvatar {
+                width: 45px;
+                height: 45px;
             }
 
             main {
@@ -234,17 +289,10 @@
                 font-size: 28px;
             }
 
-            h3 {
-                font-size: 24px;
-            }
-
             p {
                 font-size: 18px;
             }
 
-            .obrazek {
-                max-width: 100%;
-            }
         }
 
     </style>
@@ -260,15 +308,44 @@
 
         <h1>Pražská linka 58</h1>
 
-        <div class="header-links">
+
+        <div class="header-menu">
 
             <a href="autor.html">
                 O autorovi
             </a>
 
-            <a href="prihlaseni.html">
+
+            <!-- ZOBRAZÍ SE, KDYŽ NENÍ UŽIVATEL PŘIHLÁŠEN -->
+
+            <a
+                id="loginLink"
+                href="prihlaseni.html"
+            >
                 Přihlásit se
             </a>
+
+
+            <!-- ZOBRAZÍ SE PO PŘIHLÁŠENÍ -->
+
+            <div id="profileContainer">
+
+                <img
+                    id="profileAvatar"
+                    src=""
+                    alt="Profilová fotka"
+                >
+
+
+                <div id="profileMenu">
+
+                    <button id="logoutButton">
+                        Odhlásit se
+                    </button>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -282,11 +359,11 @@
         <div class="obsah">
 
 
-            <!-- ÚVOD -->
-
             <section class="uvod">
 
-                <h2>Pražská linka 58 pro OMSI 2</h2>
+                <h2>
+                    Pražská linka 58 pro OMSI 2
+                </h2>
 
                 <p>
                     Vítejte na oficiální stránce projektu
@@ -303,29 +380,27 @@
             </section>
 
 
-            <!-- OBRÁZEK -->
-
             <img
                 class="obrazek"
                 src="Sor_TNS_18.png"
-                alt="Trolejbus SOR TNS 18 na pražské lince 58"
+                alt="SOR TNS 18 na pražské lince 58"
             >
+
 
             <p class="popisek">
                 SOR TNS 18 na pražské lince 58.
             </p>
 
 
-            <!-- INFORMACE -->
-
             <section class="informace">
 
-                <h3>O projektu Pražská linka 58</h3>
+                <h3>
+                    O projektu Pražská linka 58
+                </h3>
 
                 <p>
-                    Projekt Pražská linka 58 se zaměřuje
-                    na vytvoření pražské trolejbusové linky
-                    pro simulátor OMSI 2.
+                    Projekt Pražská linka 58 se zaměřuje na vytvoření
+                    pražské trolejbusové linky pro simulátor OMSI 2.
                 </p>
 
                 <p>
@@ -342,11 +417,11 @@
             </section>
 
 
-            <!-- STAŽENÍ -->
-
             <section>
 
-                <h3>Stáhnout launcher</h3>
+                <h3>
+                    Stáhnout launcher
+                </h3>
 
                 <p>
                     Pomocí launcheru můžete stáhnout
@@ -367,11 +442,274 @@
     </main>
 
 
-    <!-- PATIČKA -->
-
     <footer>
         Pražská linka 58 | Projekt pro OMSI 2
     </footer>
+
+
+    <!-- SUPABASE -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <script>
+
+        /* ==========================================
+           SUPABASE NASTAVENÍ
+        ========================================== */
+
+        const SUPABASE_URL =
+            "https://zhrlmmxueozrpvemuccy.supabase.co";
+
+
+        /*
+        =============================================
+        TADY VLOŽ SVŮJ PUBLISHABLE KEY
+
+        MÍSTO TEXTU:
+
+        VLOZ_SEM_PUBLISHABLE_KEY
+
+        vlož klíč začínající:
+
+        sb_publishable_
+
+        NIKDY SEM NEDÁVEJ SECRET KEY.
+        =============================================
+        */
+
+        const SUPABASE_KEY =
+            "sb_publishable_AkMbsg_7MkYSPq9viQWJhw_b69GShS0";
+
+
+        const supabaseClient =
+            window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_KEY,
+                {
+                    auth: {
+                        persistSession: true,
+                        autoRefreshToken: true,
+                        detectSessionInUrl: true
+                    }
+                }
+            );
+
+
+        /* ==========================================
+           ZOBRAZENÍ PROFILU
+        ========================================== */
+
+        function showProfile(session) {
+
+            const loginLink =
+                document.getElementById("loginLink");
+
+            const profileContainer =
+                document.getElementById("profileContainer");
+
+            const profileAvatar =
+                document.getElementById("profileAvatar");
+
+
+            /* UŽIVATEL NENÍ PŘIHLÁŠEN */
+
+            if (!session || !session.user) {
+
+                loginLink.style.display = "inline";
+
+                profileContainer.style.display = "none";
+
+                return;
+            }
+
+
+            /* UŽIVATEL JE PŘIHLÁŠEN */
+
+            loginLink.style.display = "none";
+
+            profileContainer.style.display = "block";
+
+
+            const user =
+                session.user;
+
+
+            const metadata =
+                user.user_metadata || {};
+
+
+            console.log(
+                "Discord metadata:",
+                metadata
+            );
+
+
+            /* PROFILOVKA Z DISCORDU */
+
+            const avatarURL =
+                metadata.avatar_url ||
+                metadata.picture ||
+                metadata.avatar_url_512 ||
+                metadata.avatar;
+
+
+            if (avatarURL) {
+
+                profileAvatar.src =
+                    avatarURL;
+
+            } else {
+
+                /* NÁHRADNÍ DISCORD PROFILOVKA */
+
+                profileAvatar.src =
+                    "https://cdn.discordapp.com/embed/avatars/0.png";
+
+            }
+
+        }
+
+
+        /* ==========================================
+           OTEVŘENÍ MENU POD PROFILOVKOU
+        ========================================== */
+
+        const profileAvatar =
+            document.getElementById("profileAvatar");
+
+
+        const profileMenu =
+            document.getElementById("profileMenu");
+
+
+        profileAvatar.addEventListener(
+            "click",
+            function(event) {
+
+                event.stopPropagation();
+
+                profileMenu.classList.toggle(
+                    "show"
+                );
+
+            }
+        );
+
+
+        /* ==========================================
+           KLIK MIMO MENU
+        ========================================== */
+
+        document.addEventListener(
+            "click",
+            function() {
+
+                profileMenu.classList.remove(
+                    "show"
+                );
+
+            }
+        );
+
+
+        profileMenu.addEventListener(
+            "click",
+            function(event) {
+
+                event.stopPropagation();
+
+            }
+        );
+
+
+        /* ==========================================
+           ODHLÁŠENÍ
+        ========================================== */
+
+        document.getElementById(
+            "logoutButton"
+        ).addEventListener(
+
+            "click",
+
+            async function() {
+
+                const { error } =
+                    await supabaseClient.auth
+                    .signOut();
+
+
+                if (error) {
+
+                    alert(
+                        "Odhlášení se nezdařilo."
+                    );
+
+                    return;
+                }
+
+
+                profileMenu.classList.remove(
+                    "show"
+                );
+
+
+                showProfile(null);
+
+            }
+
+        );
+
+
+        /* ==========================================
+           ZJISTIT, JESTLI JE UŽIVATEL PŘIHLÁŠEN
+        ========================================== */
+
+        async function checkLogin() {
+
+            const { data, error } =
+                await supabaseClient.auth
+                    .getSession();
+
+
+            if (error) {
+
+                console.error(error);
+
+                return;
+            }
+
+
+            showProfile(
+                data.session
+            );
+
+        }
+
+
+        /* ==========================================
+           ZMĚNA PŘIHLÁŠENÍ
+        ========================================== */
+
+        supabaseClient.auth.onAuthStateChange(
+
+            function(event, session) {
+
+                showProfile(
+                    session
+                );
+
+            }
+
+        );
+
+
+        /* SPUŠTĚNÍ */
+
+        checkLogin();
+
+    </script>
 
 </body>
 
