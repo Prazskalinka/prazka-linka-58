@@ -12,6 +12,13 @@
         content="Pražská linka 58 je projekt mapy pro OMSI 2. Informace o vývoji mapy, trolejbusech SOR TNS 18 a launcher ke stažení."
     >
 
+    <meta name="robots" content="index, follow">
+
+    <link
+        rel="canonical"
+        href="https://prazskalinka.github.io/prazka-linka-58/"
+    >
+
     <style>
 
         * {
@@ -26,18 +33,22 @@
             text-align: center;
         }
 
-        /* HORNÍ LIŠTA */
+        /* =========================
+           HORNÍ LIŠTA
+        ========================= */
 
         header {
             position: relative;
+
             background-color: #111111;
+
             min-height: 120px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            padding: 20px 400px 20px 40px;
+            padding: 20px 420px 20px 40px;
         }
 
         header h1 {
@@ -45,7 +56,9 @@
             font-size: 48px;
         }
 
-        /* PRAVÉ MENU */
+        /* =========================
+           MENU VPRAVO
+        ========================= */
 
         .header-menu {
             position: absolute;
@@ -68,13 +81,17 @@
 
             font-size: 23px;
             font-weight: bold;
+
+            transition: 0.2s;
         }
 
         .header-menu > a:hover {
             color: #cccccc;
         }
 
-        /* PROFIL */
+        /* =========================
+           PROFIL
+        ========================= */
 
         #profileContainer {
             position: relative;
@@ -94,25 +111,29 @@
             cursor: pointer;
 
             display: block;
+
+            transition: 0.2s;
         }
 
         #profileAvatar:hover {
-            opacity: 0.85;
+            opacity: 0.8;
         }
 
-        /* MENU POD PROFILOVKOU */
+        /* =========================
+           MENU POD PROFILOVKOU
+        ========================= */
 
         #profileMenu {
             display: none;
 
             position: absolute;
 
-            top: 62px;
+            top: 65px;
             right: 0;
 
             width: 180px;
 
-            background-color: #2a2a2a;
+            background-color: #292929;
 
             border-radius: 10px;
 
@@ -150,7 +171,9 @@
             background-color: #444444;
         }
 
-        /* HLAVNÍ OBSAH */
+        /* =========================
+           HLAVNÍ OBSAH
+        ========================= */
 
         main {
             padding: 60px 30px;
@@ -163,12 +186,14 @@
 
         h2 {
             font-size: 34px;
+            margin-top: 10px;
             margin-bottom: 25px;
         }
 
         h3 {
             font-size: 27px;
             margin-top: 50px;
+            margin-bottom: 20px;
         }
 
         p {
@@ -176,15 +201,22 @@
             line-height: 1.7;
         }
 
+        /* =========================
+           ÚVOD
+        ========================= */
+
         .uvod {
             max-width: 850px;
             margin: 0 auto 30px auto;
         }
 
-        /* OBRÁZEK */
+        /* =========================
+           OBRÁZEK
+        ========================= */
 
         .obrazek {
             width: 900px;
+
             max-width: 90%;
 
             height: auto;
@@ -195,24 +227,29 @@
         }
 
         .popisek {
+            margin-top: 12px;
             color: #dddddd;
         }
 
-        /* INFORMACE */
+        /* =========================
+           INFORMACE
+        ========================= */
 
         .informace {
             max-width: 850px;
 
             margin: 45px auto 0 auto;
 
-            padding: 30px;
-
             background-color: #262626;
+
+            padding: 30px;
 
             border-radius: 15px;
         }
 
-        /* STAŽENÍ */
+        /* =========================
+           STAŽENÍ
+        ========================= */
 
         .tlacitko {
             display: inline-block;
@@ -231,13 +268,18 @@
             border-radius: 10px;
 
             margin-top: 25px;
+
+            transition: 0.2s;
         }
 
         .tlacitko:hover {
             background-color: #0d7bea;
+            transform: scale(1.03);
         }
 
-        /* PATIČKA */
+        /* =========================
+           PATIČKA
+        ========================= */
 
         footer {
             margin-top: 50px;
@@ -247,14 +289,18 @@
             padding: 25px;
 
             color: #cccccc;
+
+            font-size: 15px;
         }
 
-        /* MOBIL */
+        /* =========================
+           MOBIL
+        ========================= */
 
         @media (max-width: 1000px) {
 
             header {
-                padding: 25px 20px 125px 20px;
+                padding: 25px 20px 130px 20px;
             }
 
             header h1 {
@@ -263,6 +309,7 @@
 
             .header-menu {
                 top: auto;
+
                 bottom: 25px;
 
                 right: 50%;
@@ -270,6 +317,8 @@
                 transform: translateX(50%);
 
                 width: max-content;
+
+                gap: 20px;
             }
 
             .header-menu > a {
@@ -277,8 +326,12 @@
             }
 
             #profileAvatar {
-                width: 45px;
-                height: 45px;
+                width: 46px;
+                height: 46px;
+            }
+
+            #profileMenu {
+                top: 58px;
             }
 
             main {
@@ -289,10 +342,17 @@
                 font-size: 28px;
             }
 
+            h3 {
+                font-size: 24px;
+            }
+
             p {
                 font-size: 18px;
             }
 
+            .obrazek {
+                max-width: 100%;
+            }
         }
 
     </style>
@@ -302,7 +362,9 @@
 
 <body>
 
-    <!-- HORNÍ LIŠTA -->
+    <!-- =========================
+         HORNÍ LIŠTA
+    ========================== -->
 
     <header>
 
@@ -311,12 +373,14 @@
 
         <div class="header-menu">
 
+            <!-- O AUTOROVI -->
+
             <a href="autor.html">
                 O autorovi
             </a>
 
 
-            <!-- ZOBRAZÍ SE, KDYŽ NENÍ UŽIVATEL PŘIHLÁŠEN -->
+            <!-- PŘIHLÁŠENÍ -->
 
             <a
                 id="loginLink"
@@ -326,14 +390,15 @@
             </a>
 
 
-            <!-- ZOBRAZÍ SE PO PŘIHLÁŠENÍ -->
+            <!-- PROFIL PO PŘIHLÁŠENÍ -->
 
             <div id="profileContainer">
 
                 <img
                     id="profileAvatar"
                     src=""
-                    alt="Profilová fotka"
+                    alt="Discord profilová fotka"
+                    title="Můj účet"
                 >
 
 
@@ -352,12 +417,16 @@
     </header>
 
 
-    <!-- HLAVNÍ OBSAH -->
+    <!-- =========================
+         HLAVNÍ OBSAH
+    ========================== -->
 
     <main>
 
         <div class="obsah">
 
+
+            <!-- ÚVOD -->
 
             <section class="uvod">
 
@@ -365,12 +434,14 @@
                     Pražská linka 58 pro OMSI 2
                 </h2>
 
+
                 <p>
                     Vítejte na oficiální stránce projektu
                     <strong>Pražská linka 58</strong>.
                     Jedná se o projekt mapy pro autobusový
                     a trolejbusový simulátor OMSI 2.
                 </p>
+
 
                 <p>
                     Na této stránce najdete informace o vývoji mapy,
@@ -380,10 +451,12 @@
             </section>
 
 
+            <!-- OBRÁZEK -->
+
             <img
                 class="obrazek"
                 src="Sor_TNS_18.png"
-                alt="SOR TNS 18 na pražské lince 58"
+                alt="Trolejbus SOR TNS 18 na pražské lince 58"
             >
 
 
@@ -392,21 +465,27 @@
             </p>
 
 
+            <!-- INFORMACE -->
+
             <section class="informace">
 
                 <h3>
                     O projektu Pražská linka 58
                 </h3>
 
+
                 <p>
-                    Projekt Pražská linka 58 se zaměřuje na vytvoření
-                    pražské trolejbusové linky pro simulátor OMSI 2.
+                    Projekt Pražská linka 58 se zaměřuje
+                    na vytvoření pražské trolejbusové linky
+                    pro simulátor OMSI 2.
                 </p>
+
 
                 <p>
                     Do budoucna se plánuje rozšiřování mapy,
                     další úseky trasy a přidávání dalších vozidel.
                 </p>
+
 
                 <p>
                     Součástí projektu je také vlastní launcher,
@@ -417,16 +496,20 @@
             </section>
 
 
+            <!-- STAŽENÍ -->
+
             <section>
 
                 <h3>
                     Stáhnout launcher
                 </h3>
 
+
                 <p>
                     Pomocí launcheru můžete stáhnout
                     a aktualizovat obsah projektu Pražská linka 58.
                 </p>
+
 
                 <a
                     class="tlacitko"
@@ -442,41 +525,31 @@
     </main>
 
 
+    <!-- =========================
+         PATIČKA
+    ========================== -->
+
     <footer>
         Pražská linka 58 | Projekt pro OMSI 2
     </footer>
 
 
-    <!-- SUPABASE -->
+    <!-- =========================
+         SUPABASE
+    ========================== -->
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
     <script>
 
-        /* ==========================================
+        /* =========================================
            SUPABASE NASTAVENÍ
         ========================================== */
 
         const SUPABASE_URL =
             "https://zhrlmmxueozrpvemuccy.supabase.co";
 
-
-        /*
-        =============================================
-        TADY VLOŽ SVŮJ PUBLISHABLE KEY
-
-        MÍSTO TEXTU:
-
-        VLOZ_SEM_PUBLISHABLE_KEY
-
-        vlož klíč začínající:
-
-        sb_publishable_
-
-        NIKDY SEM NEDÁVEJ SECRET KEY.
-        =============================================
-        */
 
         const SUPABASE_KEY =
             "sb_publishable_AkMbsg_7MkYSPq9viQWJhw_b69GShS0";
@@ -496,39 +569,62 @@
             );
 
 
-        /* ==========================================
-           ZOBRAZENÍ PROFILU
+        /* =========================================
+           PRVKY STRÁNKY
+        ========================================== */
+
+        const loginLink =
+            document.getElementById("loginLink");
+
+
+        const profileContainer =
+            document.getElementById("profileContainer");
+
+
+        const profileAvatar =
+            document.getElementById("profileAvatar");
+
+
+        const profileMenu =
+            document.getElementById("profileMenu");
+
+
+        const logoutButton =
+            document.getElementById("logoutButton");
+
+
+        /* =========================================
+           ZOBRAZENÍ PROFILOVKY
         ========================================== */
 
         function showProfile(session) {
 
-            const loginLink =
-                document.getElementById("loginLink");
-
-            const profileContainer =
-                document.getElementById("profileContainer");
-
-            const profileAvatar =
-                document.getElementById("profileAvatar");
-
-
-            /* UŽIVATEL NENÍ PŘIHLÁŠEN */
+            /* NENÍ PŘIHLÁŠEN */
 
             if (!session || !session.user) {
 
-                loginLink.style.display = "inline";
+                loginLink.style.display =
+                    "inline";
 
-                profileContainer.style.display = "none";
+                profileContainer.style.display =
+                    "none";
+
+                profileMenu.classList.remove(
+                    "show"
+                );
 
                 return;
             }
 
 
-            /* UŽIVATEL JE PŘIHLÁŠEN */
+            /* JE PŘIHLÁŠEN */
 
-            loginLink.style.display = "none";
+            loginLink.style.display =
+                "none";
 
-            profileContainer.style.display = "block";
+
+            profileContainer.style.display =
+                "block";
 
 
             const user =
@@ -540,26 +636,40 @@
 
 
             console.log(
-                "Discord metadata:",
+                "Údaje uživatele:",
                 metadata
             );
 
 
-            /* PROFILOVKA Z DISCORDU */
+            /* DISCORD PROFILOVKA */
 
-            const avatarURL =
+            let avatarURL =
+
                 metadata.avatar_url ||
+
                 metadata.picture ||
+
                 metadata.avatar_url_512 ||
-                metadata.avatar;
+
+                "";
 
 
-            if (avatarURL) {
+            /*
+                Pokud Supabase vrátí avatar
+                přímo jako URL, použijeme ho.
+            */
+
+            if (
+                avatarURL &&
+                avatarURL.startsWith("http")
+            ) {
 
                 profileAvatar.src =
                     avatarURL;
 
-            } else {
+            }
+
+            else {
 
                 /* NÁHRADNÍ DISCORD PROFILOVKA */
 
@@ -571,65 +681,60 @@
         }
 
 
-        /* ==========================================
-           OTEVŘENÍ MENU POD PROFILOVKOU
+        /* =========================================
+           KLIK NA PROFILOVKU
         ========================================== */
 
-        const profileAvatar =
-            document.getElementById("profileAvatar");
-
-
-        const profileMenu =
-            document.getElementById("profileMenu");
-
-
         profileAvatar.addEventListener(
+
             "click",
+
             function(event) {
 
                 event.stopPropagation();
+
 
                 profileMenu.classList.toggle(
                     "show"
                 );
 
             }
+
         );
 
 
-        /* ==========================================
-           KLIK MIMO MENU
+        /* =========================================
+           KLIK MIMO PROFILOVKU
         ========================================== */
 
         document.addEventListener(
+
             "click",
-            function() {
 
-                profileMenu.classList.remove(
-                    "show"
-                );
-
-            }
-        );
-
-
-        profileMenu.addEventListener(
-            "click",
             function(event) {
 
-                event.stopPropagation();
+                if (
+                    !profileContainer.contains(
+                        event.target
+                    )
+                ) {
+
+                    profileMenu.classList.remove(
+                        "show"
+                    );
+
+                }
 
             }
+
         );
 
 
-        /* ==========================================
+        /* =========================================
            ODHLÁŠENÍ
         ========================================== */
 
-        document.getElementById(
-            "logoutButton"
-        ).addEventListener(
+        logoutButton.addEventListener(
 
             "click",
 
@@ -637,7 +742,7 @@
 
                 const { error } =
                     await supabaseClient.auth
-                    .signOut();
+                        .signOut();
 
 
                 if (error) {
@@ -647,6 +752,7 @@
                     );
 
                     return;
+
                 }
 
 
@@ -662,8 +768,8 @@
         );
 
 
-        /* ==========================================
-           ZJISTIT, JESTLI JE UŽIVATEL PŘIHLÁŠEN
+        /* =========================================
+           KONTROLA PŘIHLÁŠENÍ
         ========================================== */
 
         async function checkLogin() {
@@ -675,9 +781,13 @@
 
             if (error) {
 
-                console.error(error);
+                console.error(
+                    "Chyba při kontrole přihlášení:",
+                    error
+                );
 
                 return;
+
             }
 
 
@@ -688,7 +798,7 @@
         }
 
 
-        /* ==========================================
+        /* =========================================
            ZMĚNA PŘIHLÁŠENÍ
         ========================================== */
 
@@ -705,7 +815,9 @@
         );
 
 
-        /* SPUŠTĚNÍ */
+        /* =========================================
+           SPUSTIT
+        ========================================== */
 
         checkLogin();
 
