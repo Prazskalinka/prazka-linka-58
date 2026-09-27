@@ -8,15 +8,19 @@
     <title>Přihlášení | Pražská linka 58</title>
 
     <style>
+
         * {
             box-sizing: border-box;
         }
 
         body {
             margin: 0;
+
             font-family: Arial, sans-serif;
+
             background-color: #1c1c1c;
             color: white;
+
             text-align: center;
         }
 
@@ -24,29 +28,34 @@
 
         header {
             position: relative;
+
             background-color: #111111;
+
             min-height: 120px;
 
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
 
             padding: 20px;
         }
 
         header h1 {
             margin: 0;
+
             font-size: 42px;
         }
 
         .zpet {
             position: absolute;
+
             left: 35px;
             top: 50%;
 
             transform: translateY(-50%);
 
             color: white;
+
             text-decoration: none;
 
             font-size: 22px;
@@ -64,7 +73,8 @@
         }
 
         .login-box {
-            width: 500px;
+            width: 480px;
+
             max-width: 100%;
 
             margin: 0 auto;
@@ -78,11 +88,13 @@
 
         h2 {
             margin-top: 0;
+
             font-size: 30px;
         }
 
         p {
             font-size: 18px;
+
             line-height: 1.6;
         }
 
@@ -96,6 +108,7 @@
             margin-top: 14px;
 
             border: none;
+
             border-radius: 8px;
 
             font-size: 17px;
@@ -111,6 +124,7 @@
             margin-top: 16px;
 
             border: none;
+
             border-radius: 8px;
 
             font-size: 18px;
@@ -131,12 +145,12 @@
         }
 
         .register-button {
-            background-color: #4b4b4b;
+            background-color: #444444;
             color: white;
         }
 
         .register-button:hover {
-            background-color: #5c5c5c;
+            background-color: #555555;
         }
 
         .discord-button {
@@ -148,19 +162,21 @@
             background-color: #4752c4;
         }
 
-        .logout-button {
-            background-color: #b3261e;
+        .home-button {
+            background-color: #0866c6;
             color: white;
         }
 
-        .logout-button:hover {
-            background-color: #d93025;
+        .logout-button {
+            background-color: #b3261e;
+            color: white;
         }
 
         /* ODDĚLOVAČ */
 
         .separator {
             margin: 28px 0;
+
             color: #aaaaaa;
         }
 
@@ -168,9 +184,12 @@
 
         #message {
             margin-top: 25px;
+
             min-height: 28px;
 
             font-size: 17px;
+
+            line-height: 1.5;
         }
 
         /* PŘIHLÁŠENÝ UŽIVATEL */
@@ -179,11 +198,25 @@
             display: none;
         }
 
+        #userAvatar {
+            width: 90px;
+            height: 90px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            border: 3px solid white;
+
+            margin-bottom: 15px;
+        }
+
         #userName {
-            font-size: 25px;
+            font-size: 24px;
+
             font-weight: bold;
 
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
 
         #userEmail {
@@ -216,9 +249,11 @@
 
             .zpet {
                 top: auto;
+
                 bottom: 20px;
 
                 left: 50%;
+
                 transform: translateX(-50%);
             }
 
@@ -229,8 +264,11 @@
             .login-box {
                 padding: 25px;
             }
+
         }
+
     </style>
+
 </head>
 
 
@@ -240,7 +278,10 @@
 
     <header>
 
-        <a href="index.html" class="zpet">
+        <a
+            href="index.html"
+            class="zpet"
+        >
             ← Zpět
         </a>
 
@@ -249,13 +290,14 @@
     </header>
 
 
-    <!-- HLAVNÍ ČÁST -->
+    <!-- HLAVNÍ OBSAH -->
 
     <main>
 
         <div class="login-box">
 
-            <!-- NEPŘIHLÁŠENÝ -->
+
+            <!-- NEPŘIHLÁŠENÝ UŽIVATEL -->
 
             <div id="loginPanel">
 
@@ -313,17 +355,30 @@
             </div>
 
 
-            <!-- PŘIHLÁŠENÝ -->
+            <!-- PŘIHLÁŠENÝ UŽIVATEL -->
 
             <div id="userPanel">
 
-                <h2>Jste přihlášen</h2>
+                <img
+                    id="userAvatar"
+                    src=""
+                    alt="Profilová fotka"
+                >
 
                 <div id="userName">
                     Přihlášený uživatel
                 </div>
 
                 <p id="userEmail"></p>
+
+
+                <button
+                    class="home-button"
+                    onclick="goHome()"
+                >
+                    Přejít na hlavní stránku
+                </button>
+
 
                 <button
                     class="logout-button"
@@ -342,46 +397,36 @@
     </main>
 
 
+    <!-- PATIČKA -->
+
     <footer>
         Pražská linka 58
     </footer>
 
 
-    <!-- SUPABASE KNIHOVNA -->
+    <!-- SUPABASE -->
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
     <script>
 
-        /* ======================================================
-           1. NASTAVENÍ SUPABASE
-        ====================================================== */
+        /* =========================================
+           SUPABASE NASTAVENÍ
+        ========================================== */
 
         const SUPABASE_URL =
             "https://zhrlmmxueozrpvemuccy.supabase.co";
 
 
-        /*
-        ==========================================================
-        SEM VLOŽ SVŮJ PUBLISHABLE KEY ZE SUPABASE
-
-        Začíná:
-
-        sb_publishable_...
-
-        NEVKLÁDEJ SECRET KEY!
-        ==========================================================
-        */
-
-        const SUPABASE_PUBLISHABLE_KEY =
-            "SEM_VLOZ_SVUJ_PUBLISHABLE_KEY";
+        const SUPABASE_KEY =
+            "sb_publishable_AkMbsg_7MkYSPq9viQWJhw_b69GShS0";
 
 
         const supabaseClient =
             window.supabase.createClient(
                 SUPABASE_URL,
-                SUPABASE_PUBLISHABLE_KEY,
+                SUPABASE_KEY,
                 {
                     auth: {
                         persistSession: true,
@@ -392,40 +437,49 @@
             );
 
 
-        /* ======================================================
-           2. ADRESA STRÁNKY
-        ====================================================== */
+        /* =========================================
+           ADRESY
+        ========================================== */
+
+        const HOME_URL =
+            "https://prazskalinka.github.io/prazka-linka-58/";
 
         const LOGIN_URL =
             "https://prazskalinka.github.io/prazka-linka-58/prihlaseni.html";
 
 
-        /* ======================================================
-           3. ZPRÁVY
-        ====================================================== */
+        /* =========================================
+           ZPRÁVY
+        ========================================== */
 
         function showMessage(text, isError = false) {
 
             const message =
                 document.getElementById("message");
 
-            message.textContent = text;
+
+            message.textContent =
+                text;
+
 
             if (isError) {
 
-                message.style.color = "#ff7777";
+                message.style.color =
+                    "#ff7777";
 
             } else {
 
-                message.style.color = "#7CFC98";
+                message.style.color =
+                    "#7CFC98";
 
             }
+
         }
 
 
-        /* ======================================================
-           4. REGISTRACE E-MAILEM
-        ====================================================== */
+        /* =========================================
+           REGISTRACE E-MAILEM
+        ========================================== */
 
         async function registerEmail() {
 
@@ -448,6 +502,7 @@
                 );
 
                 return;
+
             }
 
 
@@ -459,64 +514,60 @@
                 );
 
                 return;
-            }
-
-
-            showMessage("Probíhá registrace...");
-
-
-            try {
-
-                const { data, error } =
-                    await supabaseClient.auth.signUp({
-
-                        email: email,
-
-                        password: password,
-
-                        options: {
-                            emailRedirectTo: LOGIN_URL
-                        }
-
-                    });
-
-
-                if (error) {
-
-                    showMessage(
-                        "Registrace se nezdařila: " +
-                        error.message,
-                        true
-                    );
-
-                    return;
-                }
-
-
-                if (data.session) {
-
-                    showMessage(
-                        "Registrace proběhla úspěšně."
-                    );
-
-                    showUser(data.session);
-
-                } else {
-
-                    showMessage(
-                        "Registrace proběhla. Zkontrolujte e-mail a potvrďte svůj účet."
-                    );
-
-                }
 
             }
 
-            catch (error) {
+
+            showMessage(
+                "Probíhá registrace..."
+            );
+
+
+            const { data, error } =
+                await supabaseClient.auth
+                .signUp({
+
+                    email: email,
+
+                    password: password,
+
+                    options: {
+
+                        emailRedirectTo:
+                            HOME_URL
+
+                    }
+
+                });
+
+
+            if (error) {
 
                 showMessage(
-                    "Chyba registrace: " +
+                    "Registrace se nezdařila: " +
                     error.message,
                     true
+                );
+
+                return;
+
+            }
+
+
+            if (data.session) {
+
+                showMessage(
+                    "Registrace proběhla úspěšně."
+                );
+
+
+                window.location.href =
+                    HOME_URL;
+
+            } else {
+
+                showMessage(
+                    "Registrace proběhla. Zkontrolujte svůj e-mail a potvrďte účet."
                 );
 
             }
@@ -524,9 +575,9 @@
         }
 
 
-        /* ======================================================
-           5. PŘIHLÁŠENÍ E-MAILEM
-        ====================================================== */
+        /* =========================================
+           PŘIHLÁŠENÍ E-MAILEM
+        ========================================== */
 
         async function loginEmail() {
 
@@ -549,6 +600,7 @@
                 );
 
                 return;
+
             }
 
 
@@ -557,57 +609,43 @@
             );
 
 
-            try {
+            const { data, error } =
+                await supabaseClient.auth
+                .signInWithPassword({
 
-                const { data, error } =
-                    await supabaseClient.auth
-                    .signInWithPassword({
+                    email: email,
 
-                        email: email,
-                        password: password
+                    password: password
 
-                    });
+                });
 
 
-                if (error) {
-
-                    showMessage(
-                        "Přihlášení se nezdařilo: " +
-                        error.message,
-                        true
-                    );
-
-                    return;
-                }
-
+            if (error) {
 
                 showMessage(
-                    "Přihlášení proběhlo úspěšně."
-                );
-
-
-                showUser(
-                    data.session
-                );
-
-            }
-
-            catch (error) {
-
-                showMessage(
-                    "Chyba při přihlášení: " +
+                    "Přihlášení se nezdařilo: " +
                     error.message,
                     true
                 );
+
+                return;
+
+            }
+
+
+            if (data.session) {
+
+                window.location.href =
+                    HOME_URL;
 
             }
 
         }
 
 
-        /* ======================================================
-           6. PŘIHLÁŠENÍ PŘES DISCORD
-        ====================================================== */
+        /* =========================================
+           DISCORD
+        ========================================== */
 
         async function loginDiscord() {
 
@@ -616,112 +654,65 @@
             );
 
 
-            try {
-
-                const { data, error } =
-                    await supabaseClient.auth
-                    .signInWithOAuth({
-
-                        provider: "discord",
-
-                        options: {
-
-                            redirectTo: LOGIN_URL
-
-                        }
-
-                    });
-
-
-                if (error) {
-
-                    showMessage(
-                        "Discord přihlášení se nezdařilo: " +
-                        error.message,
-                        true
-                    );
-
-                }
-
-            }
-
-            catch (error) {
-
-                showMessage(
-                    "Chyba při přihlášení přes Discord: " +
-                    error.message,
-                    true
-                );
-
-            }
-
-        }
-
-
-        /* ======================================================
-           7. ODHLÁŠENÍ
-        ====================================================== */
-
-        async function logoutUser() {
-
-            showMessage(
-                "Odhlášení..."
-            );
-
-
             const { error } =
                 await supabaseClient.auth
-                .signOut();
+                .signInWithOAuth({
+
+                    provider: "discord",
+
+                    options: {
+
+                        redirectTo:
+                            HOME_URL
+
+                    }
+
+                });
 
 
             if (error) {
 
                 showMessage(
-                    "Odhlášení se nezdařilo: " +
+                    "Discord přihlášení se nezdařilo: " +
                     error.message,
                     true
                 );
 
-                return;
             }
-
-
-            document.getElementById(
-                "loginPanel"
-            ).style.display = "block";
-
-
-            document.getElementById(
-                "userPanel"
-            ).style.display = "none";
-
-
-            showMessage(
-                "Byl jste odhlášen."
-            );
 
         }
 
 
-        /* ======================================================
-           8. ZOBRAZENÍ PŘIHLÁŠENÉHO UŽIVATELE
-        ====================================================== */
+        /* =========================================
+           ZOBRAZENÍ UŽIVATELE
+        ========================================== */
 
         function showUser(session) {
 
-            if (!session || !session.user) {
-
+            const loginPanel =
                 document.getElementById(
                     "loginPanel"
-                ).style.display = "block";
+                );
 
 
+            const userPanel =
                 document.getElementById(
                     "userPanel"
-                ).style.display = "none";
+                );
+
+
+            if (!session || !session.user) {
+
+                loginPanel.style.display =
+                    "block";
+
+
+                userPanel.style.display =
+                    "none";
 
 
                 return;
+
             }
 
 
@@ -734,18 +725,37 @@
 
 
             const name =
+
                 metadata.full_name ||
+
                 metadata.name ||
+
                 metadata.global_name ||
+
                 metadata.preferred_username ||
+
                 metadata.user_name ||
+
                 metadata.username ||
+
+                user.email ||
+
                 "Přihlášený uživatel";
+
+
+            const avatar =
+
+                metadata.avatar_url ||
+
+                metadata.picture ||
+
+                "";
 
 
             document.getElementById(
                 "userName"
-            ).textContent = name;
+            ).textContent =
+                name;
 
 
             document.getElementById(
@@ -754,21 +764,84 @@
                 user.email || "";
 
 
-            document.getElementById(
-                "loginPanel"
-            ).style.display = "none";
+            if (
+                avatar &&
+                avatar.startsWith("http")
+            ) {
+
+                document.getElementById(
+                    "userAvatar"
+                ).src =
+                    avatar;
+
+            } else {
+
+                document.getElementById(
+                    "userAvatar"
+                ).src =
+                    "https://cdn.discordapp.com/embed/avatars/0.png";
+
+            }
 
 
-            document.getElementById(
-                "userPanel"
-            ).style.display = "block";
+            loginPanel.style.display =
+                "none";
+
+
+            userPanel.style.display =
+                "block";
 
         }
 
 
-        /* ======================================================
-           9. KONTROLA PŘIHLÁŠENÍ PŘI OTEVŘENÍ STRÁNKY
-        ====================================================== */
+        /* =========================================
+           ODHLÁŠENÍ
+        ========================================== */
+
+        async function logoutUser() {
+
+            const { error } =
+                await supabaseClient.auth
+                .signOut();
+
+
+            if (error) {
+
+                showMessage(
+                    "Odhlášení se nezdařilo.",
+                    true
+                );
+
+                return;
+
+            }
+
+
+            showUser(null);
+
+
+            showMessage(
+                "Byl jste odhlášen."
+            );
+
+        }
+
+
+        /* =========================================
+           HLAVNÍ STRÁNKA
+        ========================================== */
+
+        function goHome() {
+
+            window.location.href =
+                HOME_URL;
+
+        }
+
+
+        /* =========================================
+           KONTROLA PŘIHLÁŠENÍ
+        ========================================== */
 
         async function checkLogin() {
 
@@ -779,12 +852,12 @@
 
             if (error) {
 
-                showMessage(
-                    "Nepodařilo se zkontrolovat přihlášení.",
-                    true
+                console.error(
+                    error
                 );
 
                 return;
+
             }
 
 
@@ -795,15 +868,17 @@
         }
 
 
-        /* ======================================================
-           10. SLEDOVÁNÍ PŘIHLÁŠENÍ
-        ====================================================== */
+        /* =========================================
+           ZMĚNA PŘIHLÁŠENÍ
+        ========================================== */
 
         supabaseClient.auth.onAuthStateChange(
 
             function(event, session) {
 
-                showUser(session);
+                showUser(
+                    session
+                );
 
             }
 
