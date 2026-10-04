@@ -2,22 +2,31 @@
 <html lang="cs">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Pražská linka 58 | Mapa pro OMSI 2</title>
 
     <meta
         name="description"
-        content="Pražská linka 58 je projekt mapy pro OMSI 2. Informace o vývoji mapy, trolejbusech SOR TNS 18 a launcher ke stažení."
+        content="Pražská linka 58 je projekt mapy pro OMSI 2. Informace o vývoji mapy, trolejbusech SOR TNS 18, launcher a mobilní aplikace ke stažení."
     >
 
-    <meta name="robots" content="index, follow">
+    <meta
+        name="robots"
+        content="index, follow"
+    >
 
     <link
         rel="canonical"
         href="https://prazskalinka.github.io/prazka-linka-58/"
     >
+
 
     <style>
 
@@ -25,19 +34,27 @@
             box-sizing: border-box;
         }
 
+
         body {
+
             margin: 0;
+
             font-family: Arial, sans-serif;
+
             background-color: #1c1c1c;
+
             color: white;
+
             text-align: center;
         }
+
 
         /* =========================
            HORNÍ LIŠTA
         ========================= */
 
         header {
+
             position: relative;
 
             background-color: #111111;
@@ -45,61 +62,81 @@
             min-height: 120px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             padding: 20px 420px 20px 40px;
         }
 
+
         header h1 {
+
             margin: 0;
+
             font-size: 48px;
         }
+
 
         /* =========================
            MENU VPRAVO
         ========================= */
 
         .header-menu {
+
             position: absolute;
 
             right: 35px;
+
             top: 50%;
 
             transform: translateY(-50%);
 
             display: flex;
+
             align-items: center;
 
             gap: 25px;
         }
 
+
         .header-menu > a {
+
             color: white;
 
             text-decoration: none;
 
             font-size: 23px;
+
             font-weight: bold;
 
             transition: 0.2s;
         }
 
+
         .header-menu > a:hover {
+
             color: #cccccc;
         }
+
 
         /* =========================
            PROFIL
         ========================= */
 
         #profileContainer {
+
             position: relative;
+
             display: none;
         }
 
+
         #profileAvatar {
+
             width: 52px;
+
             height: 52px;
 
             border-radius: 50%;
@@ -115,20 +152,25 @@
             transition: 0.2s;
         }
 
+
         #profileAvatar:hover {
+
             opacity: 0.8;
         }
+
 
         /* =========================
            MENU POD PROFILOVKOU
         ========================= */
 
         #profileMenu {
+
             display: none;
 
             position: absolute;
 
             top: 65px;
+
             right: 0;
 
             width: 180px;
@@ -144,11 +186,15 @@
             z-index: 9999;
         }
 
+
         #profileMenu.show {
+
             display: block;
         }
 
+
         #profileMenu button {
+
             width: 100%;
 
             padding: 12px;
@@ -162,59 +208,83 @@
             color: white;
 
             font-size: 17px;
+
             font-weight: bold;
 
             cursor: pointer;
         }
 
+
         #profileMenu button:hover {
+
             background-color: #444444;
         }
+
 
         /* =========================
            HLAVNÍ OBSAH
         ========================= */
 
         main {
+
             padding: 60px 30px;
         }
 
+
         .obsah {
+
             max-width: 1100px;
+
             margin: 0 auto;
         }
 
+
         h2 {
+
             font-size: 34px;
+
             margin-top: 10px;
+
             margin-bottom: 25px;
         }
 
+
         h3 {
+
             font-size: 27px;
+
             margin-top: 50px;
+
             margin-bottom: 20px;
         }
 
+
         p {
+
             font-size: 20px;
+
             line-height: 1.7;
         }
+
 
         /* =========================
            ÚVOD
         ========================= */
 
         .uvod {
+
             max-width: 850px;
+
             margin: 0 auto 30px auto;
         }
+
 
         /* =========================
            OBRÁZEK
         ========================= */
 
         .obrazek {
+
             width: 900px;
 
             max-width: 90%;
@@ -226,16 +296,21 @@
             margin-top: 25px;
         }
 
+
         .popisek {
+
             margin-top: 12px;
+
             color: #dddddd;
         }
+
 
         /* =========================
            INFORMACE
         ========================= */
 
         .informace {
+
             max-width: 850px;
 
             margin: 45px auto 0 auto;
@@ -247,11 +322,19 @@
             border-radius: 15px;
         }
 
+
         /* =========================
            STAŽENÍ
         ========================= */
 
+        .stazeni {
+
+            margin-top: 50px;
+        }
+
+
         .tlacitko {
+
             display: inline-block;
 
             background-color: #0866c6;
@@ -261,27 +344,57 @@
             text-decoration: none;
 
             font-size: 21px;
+
             font-weight: bold;
 
             padding: 16px 30px;
 
             border-radius: 10px;
 
-            margin-top: 25px;
+            margin: 12px 8px;
 
             transition: 0.2s;
         }
 
+
         .tlacitko:hover {
+
             background-color: #0d7bea;
+
             transform: scale(1.03);
         }
+
+
+        .android {
+
+            background-color: #2e7d32;
+        }
+
+
+        .android:hover {
+
+            background-color: #3c9b42;
+        }
+
+
+        .poznamka {
+
+            max-width: 750px;
+
+            margin: 25px auto 0 auto;
+
+            color: #cccccc;
+
+            font-size: 16px;
+        }
+
 
         /* =========================
            PATIČKA
         ========================= */
 
         footer {
+
             margin-top: 50px;
 
             background-color: #111111;
@@ -293,6 +406,7 @@
             font-size: 15px;
         }
 
+
         /* =========================
            MOBIL
         ========================= */
@@ -300,14 +414,19 @@
         @media (max-width: 1000px) {
 
             header {
+
                 padding: 25px 20px 130px 20px;
             }
 
+
             header h1 {
+
                 font-size: 34px;
             }
 
+
             .header-menu {
+
                 top: auto;
 
                 bottom: 25px;
@@ -321,37 +440,68 @@
                 gap: 20px;
             }
 
+
             .header-menu > a {
+
                 font-size: 19px;
             }
 
+
             #profileAvatar {
+
                 width: 46px;
+
                 height: 46px;
             }
 
+
             #profileMenu {
+
                 top: 58px;
             }
 
+
             main {
+
                 padding: 40px 20px;
             }
 
+
             h2 {
+
                 font-size: 28px;
             }
 
+
             h3 {
+
                 font-size: 24px;
             }
 
+
             p {
+
                 font-size: 18px;
             }
 
+
             .obrazek {
+
                 max-width: 100%;
+            }
+
+
+            .tlacitko {
+
+                display: block;
+
+                width: 100%;
+
+                max-width: 420px;
+
+                margin: 15px auto;
+
+                font-size: 18px;
             }
         }
 
@@ -362,16 +512,20 @@
 
 <body>
 
+
     <!-- =========================
          HORNÍ LIŠTA
     ========================== -->
 
     <header>
 
-        <h1>Pražská linka 58</h1>
+        <h1>
+            Pražská linka 58
+        </h1>
 
 
         <div class="header-menu">
+
 
             <!-- O AUTOROVI -->
 
@@ -445,7 +599,8 @@
 
                 <p>
                     Na této stránce najdete informace o vývoji mapy,
-                    vozidlech a také launcher pro stažení aktualizací projektu.
+                    vozidlech, launcher pro aktualizace projektu
+                    a mobilní aplikaci pro Android.
                 </p>
 
             </section>
@@ -493,32 +648,60 @@
                     obsah potřebný pro mapu.
                 </p>
 
+
+                <p>
+                    K dispozici je také mobilní aplikace
+                    Pražská linka 58 pro zařízení s Androidem.
+                </p>
+
             </section>
 
 
-            <!-- STAŽENÍ -->
+            <!-- =========================
+                 STAŽENÍ
+            ========================== -->
 
-            <section>
+            <section class="stazeni">
 
                 <h3>
-                    Stáhnout launcher
+                    Ke stažení
                 </h3>
 
 
                 <p>
-                    Pomocí launcheru můžete stáhnout
-                    a aktualizovat obsah projektu Pražská linka 58.
+                    Vyberte si verzi podle zařízení,
+                    na kterém chcete Pražskou linku 58 používat.
                 </p>
 
+
+                <!-- WINDOWS -->
 
                 <a
                     class="tlacitko"
                     href="https://github.com/Prazskalinka/prazka-linka-58/releases/latest/download/Prazska58Launcher_Setup.exe"
                 >
-                    Stáhnout launcher
+                    💻 Stáhnout launcher pro Windows
                 </a>
 
+
+                <!-- ANDROID -->
+
+                <a
+                    class="tlacitko android"
+                    href="https://github.com/Prazskalinka/prazka-linka-58/releases/download/v1.0/PrazskaLinka58.apk"
+                >
+                    📱 Stáhnout aplikaci pro Android
+                </a>
+
+
+                <p class="poznamka">
+                    Android aplikace se stahuje jako soubor APK.
+                    Při instalaci může Android požádat o povolení
+                    instalace aplikací z tohoto zdroje.
+                </p>
+
             </section>
+
 
         </div>
 
@@ -530,7 +713,9 @@
     ========================== -->
 
     <footer>
+
         Pražská linka 58 | Projekt pro OMSI 2
+
     </footer>
 
 
@@ -538,7 +723,9 @@
          SUPABASE
     ========================== -->
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
 
 
     <script>
@@ -557,15 +744,22 @@
 
         const supabaseClient =
             window.supabase.createClient(
+
                 SUPABASE_URL,
+
                 SUPABASE_KEY,
+
                 {
                     auth: {
+
                         persistSession: true,
+
                         autoRefreshToken: true,
+
                         detectSessionInUrl: true
                     }
                 }
+
             );
 
 
@@ -574,23 +768,33 @@
         ========================================== */
 
         const loginLink =
-            document.getElementById("loginLink");
+            document.getElementById(
+                "loginLink"
+            );
 
 
         const profileContainer =
-            document.getElementById("profileContainer");
+            document.getElementById(
+                "profileContainer"
+            );
 
 
         const profileAvatar =
-            document.getElementById("profileAvatar");
+            document.getElementById(
+                "profileAvatar"
+            );
 
 
         const profileMenu =
-            document.getElementById("profileMenu");
+            document.getElementById(
+                "profileMenu"
+            );
 
 
         const logoutButton =
-            document.getElementById("logoutButton");
+            document.getElementById(
+                "logoutButton"
+            );
 
 
         /* =========================================
@@ -599,19 +803,26 @@
 
         function showProfile(session) {
 
+
             /* NENÍ PŘIHLÁŠEN */
 
-            if (!session || !session.user) {
+            if (
+                !session ||
+                !session.user
+            ) {
 
                 loginLink.style.display =
                     "inline";
 
+
                 profileContainer.style.display =
                     "none";
+
 
                 profileMenu.classList.remove(
                     "show"
                 );
+
 
                 return;
             }
@@ -752,7 +963,6 @@
                     );
 
                     return;
-
                 }
 
 
@@ -761,7 +971,9 @@
                 );
 
 
-                showProfile(null);
+                showProfile(
+                    null
+                );
 
             }
 
@@ -787,7 +999,6 @@
                 );
 
                 return;
-
             }
 
 
@@ -822,6 +1033,7 @@
         checkLogin();
 
     </script>
+
 
 </body>
 
